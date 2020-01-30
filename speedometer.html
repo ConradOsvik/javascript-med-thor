@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1 id="title">test</h1>
+    <input id="input1" type="text" name="" value="">
+  </body>
+  <script type="text/javascript">
+    const input1 = document.querySelector("#input1");
+    const desiredLenght = 10;
+
+    input1.onchange = function maxValue(){
+      if (input1.value.length > 10) {
+        console.log("storre");
+        input1.value.lenght === 10;
+      }
+    }
+    input1.onchange = function verdiProsent(){
+      var percent = (inputVerdi / desiredLenght) * 100;
+      console.log(percent);
+    }
+
+    //function for å teste hva som fungerer V
+    input1.onchange = function farge(){
+      if (input1.value.length == 10) {
+        document.body.style.backgroundColor = "grey";
+      }
+      else {
+        document.body.style.backgroundColor = "white";
+      }
+    }
+  </script>
+</html>

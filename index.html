@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1 id="overskrift">Min overskrift</h1>
+    <button onclick="myFunction()" type="button" name="button">Trykk på meg</button>
+    <button onclick="blaFarge()" type="button" name="button">bytt farge</button>
+    <input id="inpFarge" type="text" name="" value="">
+
+    <script type="text/javascript">
+    const nyText = document.getElementById("overskrift");
+    const inpFarge = document.querySelector("#inpFarge");
+    function myFunction() {
+      nyText.innerHTML = "javascript er kult";
+    }
+    function blaFarge(){
+      nyText.style.color = "blue";
+      nyText.style.backgroundColor = "red";
+    }
+    nyText.onclick = function nyFarge(){
+      nyText.style.color = "red";
+      nyText.style.backgroundColor = "blue";
+    }
+    inpFarge.onchange = function(){
+      nyText.innerHTML = "du byttet farge";
+      if (document.getElementById("inpFarge").value == "test") {
+        document.body.style.backgroundColor = "grey";
+      }
+      else {
+        document.body.style.backgroundColor = "yellow";
+      }
+    }
+    </script>
+  </body>
+</html>

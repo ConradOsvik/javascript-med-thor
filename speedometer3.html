@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="speedometer3.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a4675c07d8.js" crossorigin="anonymous"></script>
+    <title></title>
+  </head>
+  <body>
+    <section class="box">
+      <canvas id="myCanvas" width="300" height="300"></canvas>
+      <section class="circlebox">
+        <section class="circle">
+          <div class=""></div>
+          <i class="fas fa-gas-pump fa-3x"></i>
+        </section>
+      </section>
+      <section id="fartsmaler">
+      </section>
+      <section class="slidecontainer">
+        <input id="input" type="range" min="-600" max="600" value="0" class="slider" id="myRange">
+      </section>
+      <section class="slidecontainer">
+        <input id="input2" type="range" min="0" max="100" value="0">
+      </section>
+    </section>
+  </body>
+  <script type="text/javascript">
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+
+    var fartsmaler = document.querySelector("#fartsmaler");
+
+    var currentSpeed = 0;
+
+    var fart = 0;
+
+    var slider = document.getElementById("input");
+    slider.oninput = function update() {
+      currentSpeed = this.value;
+      fart = this.value;
+      maxFart();
+      tegnSpeedo();
+      displaySpeed();
+    }
+
+    function maxFart(){
+      if (fart > 300) {
+        fart = 300;
+      }
+      if (fart < -300) {
+        fart = -300;
+      }
+      if (fart < 0) {
+        fart = fart * -(1);
+      }
+    }
+
+    function displaySpeed(){
+      fartsmaler.innerHTML = currentSpeed + "Km/t"
+    }
+
+
+
+    function tegnSpeedo(){
+      ctx.fillStyle = "white";
+      ctx.rect(0,0, c.width, c.height);
+      ctx.fill();
+
+      var gradient = ctx.createLinearGradient(0, 0, 300, 0);
+      gradient.addColorStop("0", "#4685e3");
+      var circleEndTall = (fart / 150) + 1;
+      var circleEnd = (circleEndTall * 3/4 * Math.PI);
+      ctx.beginPath();
+      ctx.arc(150, 150, 100, 3/4 * Math.PI, circleEnd);
+      ctx.lineWidth = 10;
+      ctx.strokeStyle = gradient;
+      ctx.stroke();
+    }
+
+    var sliderFuel = document.getElementById("input2");
+    sliderFuel.oninput = function update() {
+      sliderVerdi = this.value;
+      endreFuel()
+    }
+
+    function endreFuel(){
+      var fuelTall = 1 - (sliderVerdi/100);
+      var fuelTop = 100 * fuelTall;
+      document.querySelector('.circle > div').style.top = fuelTop + "px"
+    }
+
+  </script>
+</html>

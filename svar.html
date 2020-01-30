@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="svar.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <title>2+2</title>
+  </head>
+  <body>
+    <section class="box">
+      <h1 id="overskrift" >Skriv riktig svar i boksen</h1>
+      <p>2+2</p>
+      <input id="svar" type="text" name="" value="">
+      <button id="reset" onclick="refresh()" type="button" name="button">Reset</button>
+    </section>
+    <script type="text/javascript">
+      const overskrift = document.getElementById('overskrift');
+      const svar = document.getElementById('svar');
+      svar.onchange = function endreFarge(){
+        if (svar.value == 4) {
+          overskrift.innerHTML = "Riktig svar";
+          document.body.style.backgroundColor = "green";
+        }
+        else {
+          overskrift.innerHTML = "Feil svar";
+          document.body.style.backgroundColor = "red";
+        }
+      }
+      function refresh(){
+        location.reload();
+      }
+    </script>
+  </body>
+</html>

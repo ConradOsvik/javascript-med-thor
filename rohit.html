@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1 id="overskrift" >er rohit indisk</h1>
+    <p>ja/nei</p>
+    <input id="svar" type="text" name="" value="">
+    <script type="text/javascript">
+      const overskrift = document.getElementById('overskrift');
+      const svar = document.getElementById('svar');
+      svar.onchange = function endreFarge(){
+        if (svar.value == "nei" || svar.value == "Nei" || svar.value == "NEI") {
+          overskrift.innerHTML = "Riktig svar";
+          document.body.style.backgroundColor = "green";
+        }
+        else {
+          overskrift.innerHTML = "Feil svar";
+          document.body.style.backgroundColor = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

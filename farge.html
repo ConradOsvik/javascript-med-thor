@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="farge.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <main>
+      <section class="content">
+        <h1>Bakgrunner</h1>
+        <section class="grid">
+          <button class="button blue" onclick="fargeBlue()" type="button" name="button">Blå</button>
+          <button class="button red" onclick="fargeRed()" type="button" name="button">Rød</button>
+          <button class="button yellow" onclick="fargeYellow()" type="button" name="button">Gul</button>
+          <button class="button green" onclick="fargeGreen()" type="button" name="button">Grønn</button>
+        </section>
+        <button class="resetbutton" onclick="resetFarge()" type="button" name="button">Reset nettside</button>
+      </section>
+      <section class="content">
+        <h1>Bytt tittel farge</h1>
+        <section class="grid">
+          <button class="button blue" onclick="fargeTitleBlue()" type="button" name="button">Blå</button>
+          <button class="button red" onclick="fargeTitleRed()" type="button" name="button">Rød</button>
+          <button class="button yellow" onclick="fargeTitleYellow()" type="button" name="button">Gul</button>
+          <button class="button green" onclick="fargeTitleGreen()" type="button" name="button">Grønn</button>
+        </section>
+        <button class="resetbutton" onclick="resetFarge()" type="button" name="button">Reset nettside</button>
+      </section>
+    </main>
+    <script type="text/javascript">
+      const byttTittelFarge = document.querySelectorAll("h1");
+
+      function fargeBlue(){
+        document.body.style.backgroundColor = "lightblue";
+      }
+      function fargeRed(){
+        document.body.style.backgroundColor = "red";
+      }
+      function fargeYellow(){
+        document.body.style.backgroundColor = "yellow";
+      }
+      function fargeGreen(){
+        document.body.style.backgroundColor = "lightgreen";
+      }
+      function resetFarge(){
+        location.reload();
+      }
+      function fargeTitleBlue(){
+        for(const overskrift of byttTittelFarge){
+          overskrift.style.color = "blue";
+        }
+      }
+      function fargeTitleRed(){
+        for(const overskrift of byttTittelFarge){
+          overskrift.style.color = "red";
+        }
+      }
+      function fargeTitleYellow(){
+        for(const overskrift of byttTittelFarge){
+          overskrift.style.color = "yellow";
+        }
+      }
+      function fargeTitleGreen(){
+        for(const overskrift of byttTittelFarge){
+          overskrift.style.color = "green";
+        }
+      }
+    </script>
+    <footer></footer>
+  </body>
+</html>
