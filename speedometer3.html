@@ -12,7 +12,7 @@
       <canvas id="myCanvas" width="300" height="300"></canvas>
       <section class="circlebox">
         <section class="circle">
-          <div class=""></div>
+          <div class="innercircle"></div>
           <i class="fas fa-gas-pump fa-3x"></i>
         </section>
       </section>
@@ -82,14 +82,29 @@
     var sliderFuel = document.getElementById("input2");
     sliderFuel.oninput = function update() {
       sliderVerdi = this.value;
-      endreFuel()
+      endreFuel();
+      lavFuel();
     }
 
     function endreFuel(){
       var fuelTall = 1 - (sliderVerdi/100);
-      var fuelTop = 100 * fuelTall;
-      document.querySelector('.circle > div').style.top = fuelTop + "px"
+      var fuelVerdi = 100 * fuelTall;
+      document.querySelector('.circle > div').style.top = fuelVerdi + "px";
     }
+
+    function lavFuel(){
+      var fuelTall = 1 - (sliderVerdi/100);
+      var fuelVerdi = 100 * fuelTall;
+      if (fuelVerdi > 80) {
+        var indreSirkel = document.querySelector(".innercircle");
+        indreSirkel.classList.add("circleAnimation");
+      }
+      else {
+        var indreSirkel = document.querySelector(".innercircle");
+        indreSirkel.classList.remove("circleAnimation");
+      }
+    }
+
 
   </script>
 </html>
