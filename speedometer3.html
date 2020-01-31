@@ -70,11 +70,17 @@
 
       var gradient = ctx.createLinearGradient(0, 0, 300, 0);
       gradient.addColorStop("0", "#4685e3");
+
       var circleEndTall = (fart / 150) + 1;
       var circleEnd = (circleEndTall * 3/4 * Math.PI);
       ctx.beginPath();
       ctx.arc(150, 150, 100, 3/4 * Math.PI, circleEnd);
       ctx.lineWidth = 10;
+
+      if (fart > 250) {
+        gradient.addColorStop("0", "#9c001f");
+      }
+
       ctx.strokeStyle = gradient;
       ctx.stroke();
     }
