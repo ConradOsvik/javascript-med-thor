@@ -64,25 +64,23 @@
 
 
     function tegnSpeedo(){
-      ctx.fillStyle = "white";
-      ctx.rect(0,0, c.width, c.height);
-      ctx.fill();
-
-      var gradient = ctx.createLinearGradient(0, 0, 300, 0);
-      gradient.addColorStop("0", "#4685e3");
+      ctx.beginPath();
+      ctx.clearRect(0, 0, 300, 300);
+      ctx.closePath();
 
       var circleEndTall = (fart / 150) + 1;
       var circleEnd = (circleEndTall * 3/4 * Math.PI);
       ctx.beginPath();
       ctx.arc(150, 150, 100, 3/4 * Math.PI, circleEnd);
       ctx.lineWidth = 10;
+      ctx.strokeStyle = '#4685e3';
 
       if (fart > 250) {
-        gradient.addColorStop("0", "#9c001f");
+        ctx.strokeStyle = '#9c001f';
       }
 
-      ctx.strokeStyle = gradient;
       ctx.stroke();
+      ctx.closePath();
     }
 
     var sliderFuel = document.getElementById("input2");
