@@ -40,12 +40,12 @@
     slider.oninput = function update() {
       currentSpeed = this.value;
       fart = this.value;
-      maxFart();
+      maxSpeed();
       tegnSpeedo();
       displaySpeed();
     }
 
-    function maxFart(){
+    function maxSpeed(){
       if (fart > 300) {
         fart = 300;
       }
@@ -66,6 +66,13 @@
     function tegnSpeedo(){
       ctx.beginPath();
       ctx.clearRect(0, 0, 300, 300);
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.arc(150, 150, 100, 3/4 * Math.PI, 9/4 * Math.PI);
+      ctx.lineWidth = 10;
+      ctx.strokeStyle = 'rgba(0 , 0, 0, 0.2)';
+      ctx.stroke();
       ctx.closePath();
 
       var circleEndTall = (fart / 150) + 1;
