@@ -21,9 +21,11 @@
         <i class="fas fa-gas-pump fa-2x"></i>
       </section>
     </section>
+    <h1>fart</h1>
     <section class="slidecontainer">
       <input id="input" type="range" min="-600" max="600" value="0" class="slider" id="myRange">
     </section>
+    <h1>bensin</h1>
     <section class="slidecontainer">
       <input id="input2" type="range" min="0" max="100" value="0">
     </section>
@@ -100,12 +102,21 @@
       sliderVerdi = this.value;
       endreFuel();
       lavFuel();
+      endreFuelFarge();
     }
 
     function endreFuel(){
       var fuelTall = 1 - (sliderVerdi/100);
       var fuelVerdi = 50 * fuelTall;
       document.querySelector('.circle > div').style.top = fuelVerdi + "px";
+    }
+
+    function endreFuelFarge(){
+      var fuelTall = 1 - (sliderVerdi/100);
+      var fuelTallOmvent = 1 - fuelTall;
+      var fuelFargeVerdi = fuelTallOmvent * 125;
+      console.log(fuelFargeVerdi);
+      document.querySelector('.circle > div').style.backgroundColor = "rgb(255," + fuelFargeVerdi + ", 0)";
     }
 
     function lavFuel(){
