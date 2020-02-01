@@ -3,17 +3,19 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Roboto', sans-serif;
+  margin: 0px;
 }
 .box{
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 300px;
   height: 300px;
 }
 #fartsmaler{
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 32px;
   margin-top: -100px;
-  position: relative;
-  width: 100%;
   text-align: center;
 }
 #input{
@@ -33,11 +35,12 @@ body{
   justify-content: center;
 }
 .circle{
-  position:relative;
-  width: 100px;
-  height: 100px;
-  float:left;
-  margin:20px;
+  position:absolute;
+  width: 50px;
+  height: 50px;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.2);
   background-size:cover;
   border-radius: 50%;
@@ -49,15 +52,39 @@ body{
   padding:100px 0;
   width:100%;
   text-align:center;
-  top: 100px;
+  top: 50px;
   background: red;
 }
 .fa-gas-pump{
-  margin-left: 30px;
-  margin-top: 24px;
-  color: grey;
+  margin-left: 25%;
+  margin-top: 18%;
+  color: black;
   position: relative;
   z-index: 10;
+}
+.halfcircle{
+  position:relative;
+  width: 100px;
+  height: 50px;
+  margin-top: 200px;
+  margin-left: 100px;
+  background: rgba(0, 0, 0, 0.2);
+  background-size:cover;
+  border-radius: 50px;
+  overflow:hidden;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 60px 40px;
+}
+.halfcircle img{
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+.halfcircle p{
+  display: block;
+  margin: auto;
+  font-size: 20px
 }
 .circleAnimation {
   animation: blink 1s ease-in-out infinite;

@@ -8,22 +8,24 @@
     <title></title>
   </head>
   <body>
+    <canvas id="myCanvas" width="300" height="300"></canvas>
     <section class="box">
-      <canvas id="myCanvas" width="300" height="300"></canvas>
-      <section class="circlebox">
-        <section class="circle">
-          <div class="innercircle"></div>
-          <i class="fas fa-gas-pump fa-3x"></i>
-        </section>
+      <section class="halfcircle">
+        <img src="giring.png" alt="">
+        <p id="girmaler"></p>
       </section>
       <section id="fartsmaler">
       </section>
-      <section class="slidecontainer">
-        <input id="input" type="range" min="-600" max="600" value="0" class="slider" id="myRange">
+      <section class="circle">
+        <div class="innercircle"></div>
+        <i class="fas fa-gas-pump fa-2x"></i>
       </section>
-      <section class="slidecontainer">
-        <input id="input2" type="range" min="0" max="100" value="0">
-      </section>
+    </section>
+    <section class="slidecontainer">
+      <input id="input" type="range" min="-600" max="600" value="0" class="slider" id="myRange">
+    </section>
+    <section class="slidecontainer">
+      <input id="input2" type="range" min="0" max="100" value="0">
     </section>
   </body>
   <script type="text/javascript">
@@ -31,6 +33,8 @@
     var ctx = c.getContext("2d");
 
     var fartsmaler = document.querySelector("#fartsmaler");
+
+    var girmaler = document.querySelector('#girmaler');
 
     var currentSpeed = 0;
 
@@ -43,6 +47,7 @@
       maxSpeed();
       tegnSpeedo();
       displaySpeed();
+      giring();
     }
 
     function maxSpeed(){
@@ -99,14 +104,14 @@
 
     function endreFuel(){
       var fuelTall = 1 - (sliderVerdi/100);
-      var fuelVerdi = 100 * fuelTall;
+      var fuelVerdi = 50 * fuelTall;
       document.querySelector('.circle > div').style.top = fuelVerdi + "px";
     }
 
     function lavFuel(){
       var fuelTall = 1 - (sliderVerdi/100);
       var fuelVerdi = 100 * fuelTall;
-      if (fuelVerdi > 80) {
+      if (fuelVerdi > 70) {
         var indreSirkel = document.querySelector(".innercircle");
         indreSirkel.classList.add("circleAnimation");
       }
@@ -116,6 +121,29 @@
       }
     }
 
+    function giring(){
+      if (currentSpeed >= 250) {
+        girmaler.innerHTML = "5";
+      }
+      if (currentSpeed >= 175 && currentSpeed < 250) {
+        girmaler.innerHTML = "4";
+      }
+      if (currentSpeed >= 100 && currentSpeed < 175) {
+        girmaler.innerHTML = "3";
+      }
+      if (currentSpeed >= 50 && currentSpeed < 100) {
+        girmaler.innerHTML = "2";
+      }
+      if (currentSpeed > 0 && currentSpeed < 50) {
+        girmaler.innerHTML = "1";
+      }
+      if (currentSpeed == 0) {
+        girmaler.innerHTML = "N";
+      }
+      if (currentSpeed < 0) {
+        girmaler.innerHTML = "R";
+      }
+    }
 
   </script>
 </html>
