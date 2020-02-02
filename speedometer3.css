@@ -74,7 +74,7 @@ body{
   overflow:hidden;
   max-width: 100%;
   display: grid;
-  grid-template-columns: 60px 40px;
+  grid-template-columns: 60% 40%;
 }
 .halfcircle img{
   display: block;
